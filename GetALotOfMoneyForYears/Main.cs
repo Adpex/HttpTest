@@ -10,6 +10,7 @@ using System.Net;
 using System.Text;
 using System.Windows.Forms;
 using Excel;
+using System.Threading;
 
 namespace GetALotOfMoneyForYears
 {
@@ -35,7 +36,9 @@ namespace GetALotOfMoneyForYears
         {
             if (txt_NowTime.Text.Equals("15:35:00"))
             {
-                GetDatas();
+                ThreadStart ts = new ThreadStart(GetDatas);
+                Thread th = new Thread(ts);
+                th.Start();
             }
         }
 
@@ -128,7 +131,7 @@ namespace GetALotOfMoneyForYears
                 dr["到期税前收益（%）"] = GetDoubles(array[i]["cell"]["ytm_rt"].ToString().Trim().TrimEnd('%'));
                 dr["到期税后收益（%）"] = GetDoubles(array[i]["cell"]["ytm_rt_tax"].ToString().Trim().TrimEnd('%'));
                 dr["成交额（万）"] = GetDoubles(array[i]["cell"]["volume"].ToString().Trim());
-                dr["系统价值"] = price + 3 * premium_rt;
+                dr["系统价值"] = price + 2 * premium_rt;
 
                 dt.Rows.Add(dr);
 
@@ -138,6 +141,7 @@ namespace GetALotOfMoneyForYears
             Excel.Application excel = new Excel.Application();
             excel.Application.Workbooks.Add(true);
             excel.Visible = true;
+            
 
             //excel.SaveWorkspace(System.Windows.Forms.Application.StartupPath + string.Format(@"\Data\{0}.xlsx", DateTime.Now.ToString("yyyyMMdd")));
             //excel.Application.SaveWorkspace(System.Windows.Forms.Application.StartupPath + string.Format(@"\Data\{0}.xlsx", DateTime.Now.ToString("yyyyMMdd")));
@@ -147,7 +151,7 @@ namespace GetALotOfMoneyForYears
             {
                 excel.Cells[1, i + 1] = dt.Columns[i].Caption;
             }
-
+            
             //填充数据
             for (int i = 0; i <= dt.Rows.Count - 1; i++)
             {
