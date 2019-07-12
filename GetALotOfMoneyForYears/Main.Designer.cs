@@ -33,6 +33,8 @@
             this.timer_NowTime = new System.Windows.Forms.Timer(this.components);
             this.txt_NowTime = new System.Windows.Forms.TextBox();
             this.btu_SelfGet = new System.Windows.Forms.Button();
+            this.txt_Path = new System.Windows.Forms.TextBox();
+            this.btn_Import = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lab_NowTime
@@ -68,11 +70,29 @@
             this.btu_SelfGet.UseVisualStyleBackColor = true;
             this.btu_SelfGet.Click += new System.EventHandler(this.Btu_SelfGet_Click);
             // 
+            // txt_Path
+            // 
+            this.txt_Path.Location = new System.Drawing.Point(101, 98);
+            this.txt_Path.Name = "txt_Path";
+            this.txt_Path.Size = new System.Drawing.Size(286, 21);
+            this.txt_Path.TabIndex = 3;
+            // 
+            // btn_Import
+            // 
+            this.btn_Import.Location = new System.Drawing.Point(442, 98);
+            this.btn_Import.Name = "btn_Import";
+            this.btn_Import.Size = new System.Drawing.Size(75, 23);
+            this.btn_Import.TabIndex = 4;
+            this.btn_Import.Text = "导入数据";
+            this.btn_Import.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_Import);
+            this.Controls.Add(this.txt_Path);
             this.Controls.Add(this.btu_SelfGet);
             this.Controls.Add(this.txt_NowTime);
             this.Controls.Add(this.lab_NowTime);
@@ -90,5 +110,7 @@
         private System.Windows.Forms.Timer timer_NowTime;
         private System.Windows.Forms.TextBox txt_NowTime;
         private System.Windows.Forms.Button btu_SelfGet;
+        private System.Windows.Forms.TextBox txt_Path;
+        private System.Windows.Forms.Button btn_Import;
     }
 }

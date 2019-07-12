@@ -85,10 +85,18 @@ namespace GetALotOfMoneyForYears
 
             for (int i = 0; i < array.Count; i++)
             {
-                DataRow dr = dt.NewRow();
-                dr["债券代码"] = array[i]["cell"]["bond_id"];
-                dr["债券名称"] = array[i]["cell"]["bond_nm"];
+                string name = array[i]["cell"]["bond_nm"].ToString().Trim();
                 double price = GetDoubles(array[i]["cell"]["price"].ToString().Trim());
+                string id = array[i]["cell"]["bond_id"].ToString().Trim();
+                if (name.Contains("EB"))
+                    continue;
+                if (price == 0)
+                    continue;
+
+                DataRow dr = dt.NewRow();
+                dr["债券代码"] = 
+                dr["债券名称"] = name;
+                
                 dr["现价"] = price;
                 dr["涨跌幅（%）"] = GetDoubles(array[i]["cell"]["increase_rt"].ToString().Trim().TrimEnd('%'));
                 double premium_rt = GetDoubles(array[i]["cell"]["premium_rt"].ToString().Trim().TrimEnd('%'));
@@ -132,7 +140,7 @@ namespace GetALotOfMoneyForYears
                 dr["到期税后收益（%）"] = GetDoubles(array[i]["cell"]["ytm_rt_tax"].ToString().Trim().TrimEnd('%'));
                 dr["成交额（万）"] = GetDoubles(array[i]["cell"]["volume"].ToString().Trim());
                 dr["系统价值"] = price + 2 * premium_rt;
-
+                dr["获取时间"] = DateTime.Now.ToString("yyyy-MM-dd");
                 dt.Rows.Add(dr);
 
             }
@@ -219,7 +227,8 @@ namespace GetALotOfMoneyForYears
             dcc.Add("年限", typeof(Double));//年限
             dcc.Add("到期税前收益（%）", typeof(Double));//到期税前收益
             dcc.Add("到期税后收益（%）", typeof(Double));//到期税后收益
-            
+            dcc.Add("获取时间", typeof(String));//到期税后收益
+
         }
 
         private double GetDoubles(string str)
