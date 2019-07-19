@@ -1,0 +1,12 @@
+F:\sf\Money\GetALotOfMoneyForYears\GetALotOfMoneyForYears\bin\Release\GetALotOfMoneyForYears.exe
+F:\sf\Money\GetALotOfMoneyForYears\GetALotOfMoneyForYears\bin\Release\GetALotOfMoneyForYears.pdb
+F:\sf\Money\GetALotOfMoneyForYears\GetALotOfMoneyForYears\bin\Release\Newtonsoft.Json.dll
+F:\sf\Money\GetALotOfMoneyForYears\GetALotOfMoneyForYears\bin\Release\Newtonsoft.Json.xml
+F:\sf\Money\GetALotOfMoneyForYears\GetALotOfMoneyForYears\obj\Release\GetALotOfMoneyForYears.csprojAssemblyReference.cache
+F:\sf\Money\GetALotOfMoneyForYears\GetALotOfMoneyForYears\obj\Release\GetALotOfMoneyForYears.Main.resources
+F:\sf\Money\GetALotOfMoneyForYears\GetALotOfMoneyForYears\obj\Release\GetALotOfMoneyForYears.Properties.Resources.resources
+F:\sf\Money\GetALotOfMoneyForYears\GetALotOfMoneyForYears\obj\Release\GetALotOfMoneyForYears.csproj.GenerateResource.cache
+F:\sf\Money\GetALotOfMoneyForYears\GetALotOfMoneyForYears\obj\Release\GetALotOfMoneyForYears.csproj.CoreCompileInputs.cache
+F:\sf\Money\GetALotOfMoneyForYears\GetALotOfMoneyForYears\obj\Release\GetALotOfMoneyForYears.csproj.CopyComplete
+F:\sf\Money\GetALotOfMoneyForYears\GetALotOfMoneyForYears\obj\Release\GetALotOfMoneyForYears.exe
+F:\sf\Money\GetALotOfMoneyForYears\GetALotOfMoneyForYears\obj\Release\GetALotOfMoneyForYears.pdb

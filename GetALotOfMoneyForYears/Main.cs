@@ -88,13 +88,16 @@ namespace GetALotOfMoneyForYears
                 string name = array[i]["cell"]["bond_nm"].ToString().Trim();
                 double price = GetDoubles(array[i]["cell"]["price"].ToString().Trim());
                 string id = array[i]["cell"]["bond_id"].ToString().Trim();
+                double money = GetDoubles(array[i]["cell"]["volume"].ToString().Trim());
                 if (name.Contains("EB"))
                     continue;
                 if (price == 0)
                     continue;
+                if (money == 0)
+                    continue;
 
                 DataRow dr = dt.NewRow();
-                dr["债券代码"] = 
+                dr["债券代码"] = id;
                 dr["债券名称"] = name;
                 
                 dr["现价"] = price;
@@ -138,7 +141,7 @@ namespace GetALotOfMoneyForYears
                 dr["年限"] = GetDoubles(array[i]["cell"]["year_left"].ToString().Trim());
                 dr["到期税前收益（%）"] = GetDoubles(array[i]["cell"]["ytm_rt"].ToString().Trim().TrimEnd('%'));
                 dr["到期税后收益（%）"] = GetDoubles(array[i]["cell"]["ytm_rt_tax"].ToString().Trim().TrimEnd('%'));
-                dr["成交额（万）"] = GetDoubles(array[i]["cell"]["volume"].ToString().Trim());
+                dr["成交额（万）"] = money;
                 dr["系统价值"] = price + 2 * premium_rt;
                 dr["获取时间"] = DateTime.Now.ToString("yyyy-MM-dd");
                 dt.Rows.Add(dr);
